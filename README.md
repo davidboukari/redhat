@@ -14,6 +14,23 @@ ubi7/ubi                  The Universal Base Image is designed and eng?   0
 ubi8/ubi                  Provides the latest release of the Red Hat U?   0                    
 ubi8                      The Universal Base Image is designed and eng?   0
 
+### Use systemd
+```
+docker run -d --privileged  --name myredhat8 -p 2222:22 registry.access.redhat.com/ubi8/ubi /sbin/init
+
+docker exec -it myredhat8 bash
+yum install openssh-server
+systemctl enable --now sshd 
+
+```
+
+
+### Other examples
+```
+docker run -d --privileged --name myredhat8 registry.access.redhat.com/ubi8/ubi-init /sbin/init
 
 docker run    --rm    --name rhel8    --privileged    -v /sys/fs/cgroup:/sys/fs/cgroup:ro    --tmpfs /run    -p 2222:22    -d    registry.access.redhat.com/ubi8/ubi-init
+
+
+
 ```
