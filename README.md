@@ -20,7 +20,7 @@ ubi8                      The Universal Base Image is designed and eng?   0
 docker run -d --privileged  --name myredhat8 -p 2222:22 registry.access.redhat.com/ubi8/ubi /sbin/init
 
 docker exec -it myredhat8 bash
-yum install openssh-server
+yum install -y openssh-server
 systemctl enable --now sshd 
 
 ```
